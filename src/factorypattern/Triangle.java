@@ -6,6 +6,11 @@ import java.util.*;
  * @author Mickael Walters
  */
 public class Triangle implements Shape2DPlayer {
+    
+    //Variable declaration
+    private int base, height, sideA, sideB, sideC, perimeter;
+    private double area;
+    private boolean check = false;
 
     @Override
     public void drawShape() {
@@ -14,13 +19,24 @@ public class Triangle implements Shape2DPlayer {
         
         System.out.println(" 🔺 I am the shape of a pyramid! I've 3 sides. To calculate my AREA please enter the required data below");
         
-        System.out.print("\t 📐 Enter my base --> ");
-        int base = input.nextInt();
+        //VALIDATION
+        while (!check) {
+            try {
+                System.out.print("\t 📐 Enter my base --> ");
+                base = input.nextInt();
         
-        System.out.print("\t 📐 Enter my height --> ");
-        int height = input.nextInt();
+                System.out.print("\t 📐 Enter my height --> ");
+                height = input.nextInt();
+                
+                check = true;
+            } catch (Exception ex) {
+                System.err.println("\t Input is invalid.");
+                input.next();
+            }
+        } //End while
         
-        double area = 0.5 * (base * height);
+        
+        area = 0.5 * (base * height);
         System.out.println("   📌 My area is " + area + " cm2! \n");
         
         
@@ -31,16 +47,27 @@ public class Triangle implements Shape2DPlayer {
         if (choice.equalsIgnoreCase("Yes") ) {
             System.out.println("Fantastic! Enter the size for all my three sides:");
             
-            System.out.print("\t Side A --> ");
-            int sideA = input.nextInt();
+            //Validation check
+            //while (!check) {
+                try {
+                    System.out.print("\t Side A --> ");
+                    sideA = input.nextInt();
             
-            System.out.print("\t Side B --> ");
-            int sideB = input.nextInt();
+                    System.out.print("\t Side B --> ");
+                    sideB = input.nextInt();
             
-            System.out.print("\t Side C --> ");
-            int sideC = input.nextInt();
+                    System.out.print("\t Side C --> ");
+                    sideC = input.nextInt();
+                    check = true;
+                    
+                } catch (Exception ex) {
+                    System.err.println("\t This input is not valid");
+                    //input.next(); //Allow user to re-enter value
+                }
+                
+            //}//ENDWhile
             
-            int perimeter = sideA + sideB + sideC; //Perimeter calculation
+            perimeter = sideA + sideB + sideC; //Perimeter calculation
             
             System.out.println("Nice! With the figures given, my perimenter is " + perimeter + "\n");
             

@@ -14,7 +14,7 @@ public class FactoryPattern {
         Scanner input = new Scanner(System.in);
         
         //Variables
-        int choice;
+        int choice = 0;
         
         //Loop to keep menu available for the user's perusal at anytime. 
         do {
@@ -25,14 +25,20 @@ public class FactoryPattern {
                     + "\n 2 \t Circle"
                     + "\n 3 \t Parallelogram"
                     + "\n 4 \t Triangle"
-                    + "\n 0 \t Exit" 
+                    + "\n 5 \t Exit" 
                     + "\n ➖  ➖  ➖  ➖  ➖ ⚫ 🔳 🔺  ▱ ➖  ➖  ➖  ➖  ➖  ➖ ");
             
             System.out.print("\t 🖋 SELECTION --> ");
             
-            choice = input.nextInt();
+            //VALIDATION - Ensures only numerical data in input
+            try {
+               choice = input.nextInt();
+            }catch (Exception ex){
+                System.err.println("Invalid input! Enter a number from 1 - 5");
+                input.next(); //Allow user to re-enter value
+            }//EndCatch
             
-            //using the menu chosen to call the shapes classes and perform tasks
+            //Using the menu chosen the shapes classes are called tasks performed independently
             switch (choice) {
                 case 1:
                     Shape2DPlayer square = SF.getShape2DPlayer("Square");
@@ -54,16 +60,16 @@ public class FactoryPattern {
                     triangle.drawShape();
                     break;
                     
-                case 0:
+                case 5:
                     System.out.println("\t Adios! ...Come right back soon!... ");
                     break;
                     
                 default:
-                    System.err.println("SELECTION OUT OF RANGE!");
+                    System.err.println("\t OUT OF RANGE SELECTION!");
+                    
             }//EndSwitch
-            
-            
-        } while (choice != 0);
+        
+        } while (choice != 5);
         
     }
     
