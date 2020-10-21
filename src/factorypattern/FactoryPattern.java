@@ -28,7 +28,7 @@ public class FactoryPattern {
                     + "\n 0 \t Exit" 
                     + "\n ➖  ➖  ➖  ➖  ➖ ⚫ 🔳 🔺  ▱ ➖  ➖  ➖  ➖  ➖  ➖ ");
             
-            System.out.print("Selection --> ");
+            System.out.print("\t 🖋 SELECTION --> ");
             
             choice = input.nextInt();
             
@@ -55,12 +55,12 @@ public class FactoryPattern {
                     break;
                     
                 case 0:
-                    System.out.println("\t ...Come right back soon!... ");
+                    System.out.println("\t Adios! ...Come right back soon!... ");
+                    break;
                     
                 default:
                     System.err.println("SELECTION OUT OF RANGE!");
-                    break;
-            }
+            }//EndSwitch
             
             
         } while (choice != 0);
