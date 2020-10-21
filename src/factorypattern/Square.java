@@ -15,11 +15,11 @@ public class Square implements Shape2DPlayer{
         
         System.out.print("\t To find my AREA 📏, enter the resective data");
         
-        System.out.print(" Length in CM: ");       
-        int length = input.nextInt(0);
+        System.out.print("\n  Length in CM: ");       
+        int length = input.nextInt();
         
         System.out.print("\n Width in CM: ");
-        int width = input.nextInt(0);
+        int width = input.nextInt();
         
         int area = length * width;
         System.out.println("\t 📌 My area is " + area + " cm2 \n");
